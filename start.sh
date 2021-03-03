@@ -187,7 +187,7 @@ else
 	sed -i "s#TryExec=.*#TryExec=/opt/apps/$package/files/$BIN/$source.sh#g" ${packagedesktop}
 	sed -i "s#Exec=.*#Exec=/opt/apps/$package/files/$BIN/$source.sh U%#g" ${packagedesktop}
 	cp -n ${packagedesktop} $HERE/$source/b/opt/apps/$package/entries/applications/
-	cd $HERE/$source/b/opt/apps/$package/entries/applications && rm -rf !($packagedesktop_name)
+	(cd $HERE/$source/b/opt/apps/$package/entries/applications && rm -rf !($packagedesktop_name))
 fi
 
 ###########创建可执行程序的.sh文件############################# 
