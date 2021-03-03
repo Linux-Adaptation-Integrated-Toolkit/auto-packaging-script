@@ -172,12 +172,11 @@ if [ $desktopnum -eq 1 ]; then
   packagedesktop=$HERE/$source/b/opt/apps/$package/entries/applications/${package}.desktop
   mv ${desktoplist[0]} ${packagedesktop}
   echo "修改${desktoplist[0]}文件  成为${packagedesktop}文件"
-  sed -i "s#Name=.*#Name=$source#g" ${desktoplist[0]}  
-  echo "修改${desktoplist[0]}文件::::Name=$source-----------"
-  sed -i "s#TryExec=.*#TryExec=/opt/apps/$package/files/$BIN/$source.sh#g" ${desktoplist[0]}
-  sed -i "s#Exec=.*#Exec=/opt/apps/$package/files/$BIN/$source.sh U%#g" ${desktoplist[0]}
-  cp -n ${desktoplist[0]} $HERE/$source/b/opt/apps/$package/entries/applications/
-  echo "cp ${desktoplist[0]}文件到 $HERE/$source/b/opt/apps/$package/entries/applications/ 目录下"
+  sed -i "s#Name=.*#Name=$source#g" ${packagedesktop} 
+  echo "修改${packagedesktop}文件::::Name=$source-----------"
+  sed -i "s#TryExec=.*#TryExec=/opt/apps/$package/files/$BIN/$source.sh#g" ${packagedesktop} 
+  sed -i "s#Exec=.*#Exec=/opt/apps/$package/files/$BIN/$source.sh U%#g" ${packagedesktop}
+
 #如果有多个desktop，只修改第一个，然后删除其他的desktop
 else
 	packagedesktop=$HERE/$source/b/opt/apps/$package/entries/applications/${package}.desktop
